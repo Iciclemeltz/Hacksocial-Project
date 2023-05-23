@@ -3,6 +3,13 @@
  
 WattTrack(TheCoolKidz) is a simple dashboard developed using Dash and Plotly. It helps the consumer monitor their electricity consumption on a daily basis. WattTrack(TheCoolKidz) also does a forecasting of the electricity, thus helping the consumer an estimation of his/her electricity bill.
 
+## Team Name
+The Cool Kidz
+
+## Team Members
+1. Ang Kok Hwee
+2. Lee Wei Chen
+
 ## Problems Addressed:
 We feel this solves the problem because it will help users reduce their electricity consumption as it provide the statistics to show them by breaking down into monthly the different consumption charts. In addition, for faulty devices it can also be detected as well which is beneficial for the user as they can replace the device early which can save time, money and electricity too.
 

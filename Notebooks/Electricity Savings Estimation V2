@@ -8,7 +8,8 @@ import statsmodels.api as sm
 warnings.filterwarnings('ignore')
 
 # Read the electricity data from the CSV file
-data_file = r'D:\Skills\Challenges\Mitsubishi PropTech\Datasets\electricity_data.csv'
+# This location depends on where you file location is at so change accordingly
+data_file = r'C:\Users\KokHwee\Downloads\Hacksocial-Project-main\Datasetselectricity_data.csv'
 df = pd.read_csv(data_file)
 
 # Convert the 'Date' column to datetime format

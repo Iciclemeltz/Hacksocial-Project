@@ -1,5 +1,5 @@
 # Optimizing Household Electricity through Data Science
- Optimizing Electricity consumption through Machine Learning to save electricity as well as reduce the electricity bill
+ Optimizing Electricity consumption through Data Science to save electricity as well as reduce the electricity bill
  
 WattTrack(TheCoolKidz) is a simple dashboard developed using Dash and Plotly. It helps the consumer monitor their electricity consumption on a daily basis. WattTrack(TheCoolKidz) also does a forecasting of the electricity, thus helping the consumer an estimation of his/her electricity bill.
 

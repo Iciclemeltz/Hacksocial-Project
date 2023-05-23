@@ -8,7 +8,7 @@ TheCoolKidz
 
 ## Team Members:
 1. Ang Kok Hwee
-2. Lee Wei Chen
+2. Lee WeiChen
 
 ## Problems Addressed:
 We feel this solves the problem because it will help users reduce their electricity consumption as it provide the statistics to show them by breaking down into monthly the different consumption charts. In addition, for faulty devices it can also be detected as well which is beneficial for the user as they can replace the device early which can save time, money and electricity too.
@@ -27,7 +27,7 @@ We feel this solves the problem because it will help users reduce their electric
 https://youtu.be/FoAO9zIHKQg
 
 ## Youtube Link for the Pitch:
-https://youtu.be/8klrk7eC5OE
+https://www.youtube.com/watch?v=8klrk7eC5OE
 
 <img width="603" alt="Main Dashboard Features" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/169910be-69b2-4d5e-9acc-ac2262294a41">
 

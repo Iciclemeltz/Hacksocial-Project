@@ -1,0 +1,74 @@
+import pandas as pd
+import numpy as np
+import warnings
+import plotly.graph_objects as go
+import plotly.io as pio
+import datetime
+import smtplib, ssl
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
+
+warnings.filterwarnings('ignore')
+
+# Read the dataset
+df1 = pd.read_csv(r'D:\Skills\Challenges\Mitsubishi PropTech\Datasets\electricity_appliance_wise_data.csv')
+
+# Convert 'Date' column to datetime format
+df1['Date'] = pd.to_datetime(df1['Date'])
+
+# Filter data for the year 2021
+df1 = df1[df1['Date'].dt.year == 2021]
+df1.reset_index(drop=True, inplace=True)
+
+# Function to calculate z-score
+def zscore(x, window):
+    r = x.rolling(window=window)
+    m = r.mean().shift(1)
+    s = r.std(ddof=0).shift(1)
+    z = (x - m) / s
+    return z
+
+# Calculate z-scores for each appliance
+df1['kap_zscore'] = zscore(df1['Kitchen Appliances'], 30)
+df1['fridge_zscore'] = zscore(df1['Fridge'], 30)
+df1['ac_zscore'] = zscore(df1['AC'], 30)
+df1['oap_zscore'] = zscore(df1['Other Appliances'], 30)
+df1['wm_zscore'] = zscore(df1['Washing Machine'], 3)
+
+# Filter anomalies for each appliance based on z-score threshold
+df_anoms_fridge = df1[df1['fridge_zscore'] > 3]
+df_anoms_kap = df1[df1['kap_zscore'] > 3]
+df_anoms_ac = df1[df1['ac_zscore'] > 3]
+df_anoms_oap = df1[df1['oap_zscore'] > 3]
+df_anoms_wm = df1[df1['wm_zscore'] > 3]
+
+# Create a figure for anomalies in the Washing Machine
+fig = go.Figure()
+df_anoms = df_anoms_wm
+fig.add_trace(go.Scatter(x=df1['Date'], y=df1['Washing Machine'],
+                    mode='lines',
+                    name='Actual Consumption'))
+fig.add_trace(go.Scatter(x=df_anoms['Date'], y=df_anoms['Washing Machine'],
+                    mode='markers',
+                    name='High Fluctuations'))
+fig.update_layout(title='Anomalies detected in Washing Machine')
+
+# Save the figure as PDF
+pio.write_image(fig, 'output_file.pdf', format='pdf')
+
+# Send email with the attached figure for each anomaly date
+for i in df_anoms_wm['Date']:
+    fig = go.Figure()
+    df_anoms_temp = df_anoms_wm[df_anoms_wm['Date'] == i]
+    df_anoms_temp.reset_index(drop=True, inplace=True)
+    df_all_temp = df1[df1['Date'] <= i + datetime.timedelta(days=1)]
+    df_all_temp.reset_index(drop=True, inplace=True)
+    fig.add_trace(go.Scatter(x=df_all_temp['Date'], y=df_all_temp['Washing Machine'],
+                        mode='lines',
+                        name='Actual Consumption'))
+    fig.add_trace(go.Scatter(x=df_anoms_temp['Date'], y=df_anoms_temp['Washing Machine'],
+                        mode='markers',
+                        name='High Fluctuations'))
+    fig.update_traces(marker=dict

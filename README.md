@@ -5,16 +5,20 @@ Electra.AI is a simple dashboard developed using Dash and Plotly. It helps the c
 
 ## Main Dashboard Features:
 
-<img src ="https://user-images.githubusercontent.com/24243687/127759203-45f5e572-a46c-42a9-a3f3-88c8c8aedc19.PNG" width="800" height="400">
+![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/dadaeb39-ac0e-4a57-b626-d989686bc7c5)
+
 
 ## Appliance-wise Consumption:
 
-<img src="https://user-images.githubusercontent.com/24243687/127759223-f089ddf4-3425-454d-9920-d8164bbc8807.PNG" width="800" height="400">
+![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/a4f1498e-be4d-484c-bdb6-81d7d3fc86cf)
+
 
 ## Time-Series Forecasting & Early Warnings:
 
-<img src="https://user-images.githubusercontent.com/24243687/127759238-ec069bc1-6bc5-4054-bc4e-475ecd6d69fa.PNG" width="800" height="400">
+![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/d9ffe8fb-b700-4be1-a2d2-cadeac95c11a)
+
 
 ## Faulty Device Detection:
 
-<img src ="https://user-images.githubusercontent.com/24243687/127759184-3fb9e6d2-ce0f-485d-adc2-0f4fa064879b.PNG" width="800" height="400">
+![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/7b344e6d-d4d6-447b-bb83-c38522d3fee3)
+

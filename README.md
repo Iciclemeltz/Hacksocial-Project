@@ -41,5 +41,6 @@ https://youtu.be/FoAO9zIHKQg
 ## Future Works:
 - We plan to improve it by sending early warnings using an email containing a report to the user regarding the excessive electricity consumption or when it detects a faulty device at home. 
 - In addition, converting this to an mobile application will also be ideal as users can track on their mobile devices instead of going to a website. The mobile app can also send alerts to user once it reaches certain threshold like excessive electricity consumption of a faulty device.
-- Lastly, currently the data is being read from csv files. For future plans, the approach would be for users to upload their electricity bills data and the application will be able to process it and display to the users for visualisation.
+- Currently the data is being read from csv files. For future plans, the approach would be for users to upload their electricity bills data and the application will be able to process it and display to the users for visualisation.
+- Lastly, Machine Learning can also be incorporated inside to do predictions on the electricity consumption as well.
 

@@ -27,7 +27,7 @@ We feel this solves the problem because it will help users reduce their electric
 https://youtu.be/FoAO9zIHKQg
 
 ## Youtube Link for the Pitch:
-https://youtu.be/FoAO9zIHKQg
+https://youtu.be/8klrk7eC5OE
 
 <img width="603" alt="Main Dashboard Features" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/169910be-69b2-4d5e-9acc-ac2262294a41">
 

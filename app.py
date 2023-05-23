@@ -25,7 +25,7 @@ df4 = df4[df4['Date'].dt.year == 2021]
 df4.reset_index(drop=True, inplace=True)
 
 app = dash.Dash(__name__)
-app.title = 'Electra.AI'
+app.title = 'WattTrack(TheCoolKidz)'
 
 # Define dropdown options
 party_data = [
@@ -39,7 +39,7 @@ party_data = [
 app.layout = html.Div(children=[
     html.Div(className='row', children=[
         html.Div(className='four columns div-user-controls', children=[
-            html.H2('Electra.AI Dashboard', style={'font-family': 'Trebuchet MS'}),
+            html.H2('WattTrack(TheCoolKidz) Dashboard', style={'font-family': 'Trebuchet MS'}),
             html.Div(className='div-for-dropdown', children=[
                 dcc.Dropdown(
                     id='stockselector',

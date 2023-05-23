@@ -21,11 +21,15 @@ https://youtu.be/FoAO9zIHKQg
 
 <img width="603" alt="Main Dashboard Features" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/169910be-69b2-4d5e-9acc-ac2262294a41">
 
+
 <img width="593" alt="Application Consumption" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/789850e0-9b60-42a8-bce4-f7e8b5c2bb15">
+
 
 <img width="585" alt="Electricity Forecast" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/e86cd642-c145-4457-aaed-89b8d10080be">
 
+
 <img width="585" alt="Faulty Device Detection" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/4659f061-c3c3-4e79-b171-442bf970a545">
+
 
 ## Future Works:
 We plan to improve it by sending early warnings using an email containing a report to the user regarding the excessive electricity consumption or when it detects a faulty device at home. 

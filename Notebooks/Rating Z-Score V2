@@ -13,7 +13,8 @@ from email import encoders
 warnings.filterwarnings('ignore')
 
 # Read the dataset
-df1 = pd.read_csv(r'D:\Skills\Challenges\Mitsubishi PropTech\Datasets\electricity_appliance_wise_data.csv')
+# This file location depends on where the location is, change accordingly
+df1 = pd.read_csv(r'C:\Users\KokHwee\Downloads\Hacksocial-Project-main\Datasets\electricity_appliance_wise_data.csv')
 
 # Convert 'Date' column to datetime format
 df1['Date'] = pd.to_datetime(df1['Date'])

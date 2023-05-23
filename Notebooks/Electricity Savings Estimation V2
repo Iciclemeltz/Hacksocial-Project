@@ -1,5 +1,9 @@
 import pandas as pd
 import warnings
+import pandas as pd
+import numpy as np
+import plotly.graph_objects as go
+import statsmodels.api as sm
 
 warnings.filterwarnings('ignore')
 
@@ -15,3 +19,84 @@ df = df[df['Date'].dt.year == 2021]
 
 # Reset the index of the dataframe
 df.reset_index(drop=True, inplace=True)
+
+
+# Print first 3 rows of the dataframe
+print(df.head(3))
+
+# Print last 5 rows of the dataframe
+print(df.tail())
+
+# Print the shape of the dataframe
+print(df.shape)
+
+# Create a new dataframe for predictions
+df_preds = df[-80:]
+df_preds['Predicted_Consumption'] = predictions
+
+# Create a figure for the plot
+fig = go.Figure()
+
+# Add trace for actual consumption
+fig.add_trace(go.Scatter(x=df_preds['Date'], y=df_preds['Total_Consumption'],
+                    mode='lines', name='Actual Consumption'))
+
+# Add trace for predicted consumption
+fig.add_trace(go.Scatter(x=df_preds['Date'], y=df_preds['Predicted_Consumption'],
+                    mode='lines', name='Predicted Consumption'))
+
+# Define new dates for forecasting
+new_dates = pd.date_range(start='2021/07/31', end='2021/09/30')
+
+# Get the training data for the SARIMA model
+train = df.Total_Consumption.values
+
+# Define SARIMA model parameters
+my_order = (1, 1, 1)
+my_seasonal_order = (1, 1, 1, 62)
+
+# Fit the SARIMA model
+model = sm.tsa.SARIMAX(train, order=my_order, seasonal_order=my_seasonal_order,
+                       enforce_stationarity=False, enforce_invertibility=False)
+model_fit = model.fit()
+
+# Forecast future values
+output = model_fit.forecast(62)
+
+# Create a dictionary for the new predicted data
+listofzeros = [np.NaN] * 62
+data_new = {'Date': new_dates,
+            'Total_Consumption': listofzeros,
+            'Predicted_Consumption': output}
+
+# Create a dataframe for the new predicted data
+df_new_preds = pd.DataFrame(data_new)
+
+# Concatenate the predicted and new dataframes
+df_all = pd.concat([df_preds, df_new_preds], ignore_index=True)
+
+# Calculate MAE and filter anomalies
+df_all['MAE'] = df_all['Total_Consumption'] - df_all['Predicted_Consumption']
+df_anoms = df_all[df_all['MAE'] >= 5]
+df_anoms.reset_index(drop=True, inplace=True)
+
+# Calculate additional MAE cost
+df_anoms['extra_MAE'] = df_anoms['MAE'] - 5
+df_anoms['extra_MAE_cost'] = df_anoms['extra_MAE'] * 9
+
+# Group anomalies by month and calculate extra MAE cost
+df_anoms.groupby(df_anoms['Date'].dt.month)['extra_MAE_cost'].sum()
+
+# Group total consumption by month and calculate cost
+df_all.groupby(df_all['Date'].dt.month)['Total_Consumption'].sum().reset_index()['Total_Consumption'] * 7
+
+# Repeat the above steps for different MAE thresholds
+df_anoms = df_all[df_all['MAE'] >= 10]
+df_anoms.reset_index(drop=True, inplace=True)
+df_anoms['extra_MAE'] = df_anoms['MAE'] - 10
+df_anoms['extra_MAE_cost'] = df_anoms['extra_MAE'] * 9
+df_anoms.groupby(df_anoms['Date'].dt.month)['extra_MAE_cost'].sum()
+df_all.groupby(df_all['Date'].dt.month)['Total_Consumption'].sum().reset_index()['Total_Consumption'] * 7
+
+df_anoms = df_all[df_all['MAE']
+

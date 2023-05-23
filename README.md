@@ -19,19 +19,14 @@ We feel this solves the problem because it will help users reduce their electric
 ## Youtube Link for the demo
 https://youtu.be/FoAO9zIHKQg
 
-## Main Dashboard Features:
-
 <img width="603" alt="Main Dashboard Features" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/169910be-69b2-4d5e-9acc-ac2262294a41">
 
-## Appliance-wise Consumption:
 
 <img width="593" alt="Application Consumption" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/789850e0-9b60-42a8-bce4-f7e8b5c2bb15">
 
-## Time-Series Forecasting & Early Warnings:
 
 <img width="593" alt="Application Consumption" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/dc0dd172-32f3-4a2d-a91a-bae0fc66fec8">
 
-## Faulty Device Detection:
 
 <img width="585" alt="Faulty Device Detection" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/4659f061-c3c3-4e79-b171-442bf970a545">
 

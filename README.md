@@ -17,7 +17,7 @@ We feel this solves the problem because it will help users reduce their electric
 5. a local development server will be created and the dashboard will be shown with 4 features to be selected from the dropdown box.
 
 ## Youtube Link for the demo
-
+https://youtu.be/FoAO9zIHKQg
 
 ## Main Dashboard Features:
 

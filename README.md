@@ -3,6 +3,12 @@
  
 WattTrack(TheCoolKidz) is a simple dashboard developed using Dash and Plotly. It helps the consumer monitor their electricity consumption on a daily basis. WattTrack(TheCoolKidz) also does a forecasting of the electricity, thus helping the consumer an estimation of his/her electricity bill.
 
+## Problems Addressed:
+We feel this solves the problem because it will help users reduce their electricity consumption as it provide the statistics to show them by breaking down into monthly the different consumption charts. In addition, for faulty devices it can also be detected as well which is beneficial for the user as they can replace the device early which can save time, money and electricity too.
+
+## Thought Process:
+We feel this solves the problem because it will help users reduce their electricity consumption as it provide the statistics to show them by breaking down into monthly the different consumption charts. In addition, for faulty devices it can also be detected as well which is beneficial for the user as they can replace the device early which can save time, money and electricity too.
+
 ## Installation and running the program
 1. Firstly download this folder to your computer or desktop
 2. Open up Visual Studio Code or any program that can run python code.

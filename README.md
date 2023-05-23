@@ -21,22 +21,19 @@ https://youtu.be/FoAO9zIHKQg
 
 ## Main Dashboard Features:
 
-![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/dadaeb39-ac0e-4a57-b626-d989686bc7c5)
-
+<img width="603" alt="Main Dashboard Features" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/169910be-69b2-4d5e-9acc-ac2262294a41">
 
 ## Appliance-wise Consumption:
 
-![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/a4f1498e-be4d-484c-bdb6-81d7d3fc86cf)
-
+<img width="593" alt="Application Consumption" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/789850e0-9b60-42a8-bce4-f7e8b5c2bb15">
 
 ## Time-Series Forecasting & Early Warnings:
 
-![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/d9ffe8fb-b700-4be1-a2d2-cadeac95c11a)
-
+<img width="593" alt="Application Consumption" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/dc0dd172-32f3-4a2d-a91a-bae0fc66fec8">
 
 ## Faulty Device Detection:
 
-![image](https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/7b344e6d-d4d6-447b-bb83-c38522d3fee3)
+<img width="585" alt="Faulty Device Detection" src="https://github.com/Iciclemeltz/Hacksocial-Project/assets/71871315/4659f061-c3c3-4e79-b171-442bf970a545">
 
 ## Future Works:
 We plan to improve it by sending early warnings using an email containing a report to the user regarding the excessive electricity consumption or when it detects a faulty device at home. 

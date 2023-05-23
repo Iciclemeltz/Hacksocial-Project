@@ -1,0 +1,105 @@
+import pandas as pd
+import warnings
+
+warnings.filterwarnings('ignore')
+
+# Read the electricity data from the CSV file
+data_file = r'D:\Skills\Challenges\Mitsubishi PropTech\Datasets\electricity_data.csv'
+df = pd.read_csv(data_file)
+
+# Convert the 'Date' column to datetime format
+df['Date'] = pd.to_datetime(df['Date'])
+
+# Filter the dataframe to include only data from the year 2021
+df = df[df['Date'].dt.year == 2021]
+
+# Reset the index of the dataframe
+df.reset_index(drop=True, inplace=True)
+
+df.shape
+
+import math
+import statsmodels.api as sm
+import statsmodels.tsa.api as smt
+from sklearn.metrics import mean_squared_error
+import matplotlib.pyplot as plt
+import datetime
+import smtplib, ssl
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
+import plotly.graph_objects as go
+import plotly.io as pio
+import pandas as pd
+import numpy as np
+
+actual_vals = df.Total_Consumption.values
+actual_log = np.log10(actual_vals)
+
+train, test = actual_vals[0:-80], actual_vals[-80:]
+train_log, test_log = np.log10(train), np.log10(test)
+my_order = (1, 1, 1)
+my_seasonal_order = (1, 1, 1, 7)
+history = [x for x in train_log]
+predictions = []
+predict_log = []
+
+for t in range(len(test_log)):
+    model = sm.tsa.SARIMAX(history, order=my_order, seasonal_order=my_seasonal_order, enforce_stationarity=False, enforce_invertibility=False)
+    model_fit = model.fit(disp=0)
+    output = model_fit.forecast()
+    predict_log.append(output[0])
+    yhat = 10 ** output[0]
+    predictions.append(yhat)
+    obs = test_log[t]
+    history.append(obs)
+
+figsize = (12, 7)
+plt.figure(figsize=figsize)
+plt.plot(test, label='Actuals')
+plt.plot(predictions, color='red', label='Predicted')
+plt.legend(loc='upper right')
+plt.show()
+
+df_preds = df[-80:]
+df_preds['Predicted_Consumption'] = predictions
+
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=df_preds['Date'], y=df_preds['Total_Consumption'],
+                    mode='lines',
+                    name='Actual Consumption'))
+fig.add_trace(go.Scatter(x=df_preds['Date'], y=df_preds['Predicted_Consumption'],
+                    mode='lines',
+                    name='Predicted Consumption'))
+
+new_dates = pd.date_range(start='2021/07/31', end='2021/09/30')
+train = df.Total_Consumption.values
+
+my_order = (1, 1, 1)
+my_seasonal_order = (1, 1, 1, 62)
+
+model = sm.tsa.SARIMAX(train, order=my_order, seasonal_order=my_seasonal_order, enforce_stationarity=False, enforce_invertibility=False)
+model_fit = model.fit()
+output = model_fit.forecast(62)
+listofzeros = [np.NaN] * 62
+data_new = {'Date': new_dates,
+            'Total_Consumption': listofzeros,
+            'Predicted_Consumption': output}
+
+df_new_preds = pd.DataFrame(data_new)
+df_all = pd.concat([df_preds, df_new_preds], ignore_index=True)
+df_all.head(2)
+
+df_all['MAE'] = df_all['Total_Consumption'] - df_all['Predicted_Consumption']
+df_anoms = df_all[df_all['MAE'] >= 15]
+df_anoms.reset_index(drop=True, inplace=True)
+df_anoms.head(2)
+
+for i in df_anoms['Date']:
+    fig = go.Figure()
+    df_anoms_temp = df_anoms[df_anoms['Date'] == i]
+    df_anoms_temp.reset_index(drop=True, inplace=True)
+    df_all_temp = df_all[df_all['Date'] <= i + datetime.timedelta(days=1)]
+    df_all_temp.reset_index(drop=True,
+

@@ -24,7 +24,7 @@ We feel this solves the problem because it will help users reduce their electric
 5. a local development server will be created and the dashboard will be shown with 4 features to be selected from the dropdown box.
 
 ## Youtube Link for the Demo:
-https://youtu.be/FoAO9zIHKQg
+https://www.youtube.com/watch?v=FoAO9zIHKQg
 
 ## Youtube Link for the Pitch:
 https://www.youtube.com/watch?v=8klrk7eC5OE
